@@ -6,44 +6,61 @@
  * @flow
  */
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+'use strict';
+import React, { Component } from 'react';
+import {Platform, StyleSheet, Text, View, Button, Image, ImageBackground} from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import HomeScreen from './HomeScreen';
+import DetailsScreen from './DetailsScreen';
+import styles from './Styles';
 
-type Props = {};
-export default class App extends Component<Props> {
+const MainNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+const AppContainer = createAppContainer(MainNavigator);
+
+export default class App extends React.Component<{}> {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+    return <AppContainer />;
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+// const styles = StyleSheet.create({
+//   description: {
+//     fontSize: 18,
+//     textAlign: 'center',
+//     color: '#656565',
+//     marginTop: 65,
+//   },
+//   container: {
+//     flex: 1,
+//   },
+//   title: {
+//     fontSize: 28,
+//     textAlign: 'center',
+//     color: '#656565',
+//     marginTop: 90,
+//     marginLeft: 40,
+//     marginRight: 40
+//   },
+//   picture: {
+//     alignSelf: 'center',
+//     borderWidth: 0,
+//     borderRadius: 20
+//   },
+//   backgroundPic: {
+//     alignSelf: 'center',
+//     resizeMode: 'stretch',
+//     height: '100%',
+//     width: '100%'
+//   }
+// });
