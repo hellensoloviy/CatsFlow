@@ -9,6 +9,19 @@ export default StyleSheet.create({
     color: '#656565',
     marginTop: 65,
   },
+  bottomDescription: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#087c75'
+  },
+  textContainer: {
+    marginTop: 440,
+    marginLeft: 40,
+    marginRight: 40,
+    justifyContent:'center',
+    alignItems: 'center',
+    flexDirection: 'column'
+  },
   container: {
     flex: 1,
   },
